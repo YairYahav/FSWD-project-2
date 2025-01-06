@@ -1,0 +1,306 @@
+/* Colors Section */
+:root {
+    --bg-color: #2e8b7a;
+    --card-back-color: #4CAF50;
+    --card-border-color: #ffd700;
+    --player-active-color: #80d0e3;
+    --player-inactive-color: #d3d3d3;
+    --text-color: #ffffff;
+    --scoreboard-bg: #1e3d58;
+    --card-hover-color: #66cdaa;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 10px;
+    z-index: 2;
+    width: calc(80% - 40px);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: var(--card-border-color);
+}
+
+/* Layout */
+main {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    margin-right: 20%;
+}
+
+/* Scoreboard (Sidebar) */
+#player-scores {
+    background-color: var(--scoreboard-bg);
+    width: 20%;
+    padding: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    border-radius: 0;
+    z-index: 2;
+}
+
+/* Players cards */
+.player-card {
+    background-color: var(--player-inactive-color);
+    margin: 10px 0;
+    margin-top: 25px;
+    padding: 10px;
+    width: 90%;
+    text-align: center;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    min-height: 50px;
+}
+
+.player-card:first-child {
+    margin-top: 65px;
+}
+
+.player-card.player-active { /* if the player is inactive, his bg will stay gray */
+    background-color: var(--player-active-color);
+}
+
+.player-card.active {
+    border: 3px solid var(--card-border-color);
+    box-shadow: 0 0 15px var(--card-border-color);
+}
+
+
+
+
+/* Game Board */
+#game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    width: 80%;
+}
+
+#game-board {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+    padding-left: 20px;
+}
+
+
+.card {
+    background-color: var(--card-back-color);
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    background-color: var(--card-hover-color);
+    transform: scale(1.1);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-back {
+    background-color: var(--card-back-color);
+    transform: rotateY(0);
+}
+
+.card-front {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+    animation: flip-card-show 0.6s forwards;
+}
+
+.card.locked {
+    animation: flip-card-hide 0.6s forwards;
+}
+
+/* flip to see the card */
+.card.flipped .card-back {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-front {
+    transform: rotateY(0);
+}
+
+/* flip to unsee the card */
+.card:not(.flipped) .card-back {
+    transform: rotateY(0);
+}
+
+.card:not(.flipped) .card-front {
+    transform: rotateY(180deg);
+}
+
+
+@keyframes flip-card-show {
+    from {
+        transform: rotateY(180deg);
+    }
+    to {
+        transform: rotateY(0);
+    }
+}
+
+@keyframes flip-card-hide {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 10px;
+    padding: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+    width: calc(80% - 40px);
+}
+
+
+/* Pop up screen when game is over - from the simon game */
+#game-over-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 25;
+  }
+
+
+  #game-over-modal.active {
+    display: flex;
+  }
+
+
+  #game-over-modal.hidden {
+    display: none !important;
+  }
+
+
+  #game-over-modal.active #inner-circle {
+    display: none;
+  }
+
+
+  .modal-content {
+    text-align: center;
+    color: var(--text-color);
+  }
+
+
+  .modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
+
+  .modal-content h3 {
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
+
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .modal-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+  }
+
+
+  .modal-buttons button:hover {
+    background-color: var(--second-bg-color);
+    color: var(--text-color);
+  }
+
+
+  #play-again,
+  #back {
+    background-color: var(--text-color);
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }

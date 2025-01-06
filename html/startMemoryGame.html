@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game - start</title>
+    <link rel="stylesheet" href="../STATIC/CSS/startMemoryGame.css">
+</head>
+
+<body>
+    <header>
+        <h1>Memory Game</h1>
+    </header>
+
+    <main>
+        <div id="player-selection">
+            <!-- Player Cards -->
+            <div class="player-card" id="player-1">
+                <h3>Player 1</h3>
+                <button class="toggle-player" data-player="1">Enable Player</button>
+                <label>Name: <input type="text" id="name1" placeholder="Enter name" disabled></label>
+                <button class="confirm-name" data-player="1" disabled>Confirm</button>
+            </div>
+
+            <div class="player-card inactive" id="player-2">
+                <h3>Player 2</h3>
+                <button class="toggle-player" data-player="2">Enable Player</button>
+                <label>Name: <input type="text" id="name2" placeholder="Enter name" disabled></label>
+                <button class="confirm-name" data-player="2" disabled>Confirm</button>
+            </div>
+
+            <div class="player-card inactive" id="player-3">
+                <h3>Player 3</h3>
+                <button class="toggle-player" data-player="3">Enable Player</button>
+                <label>Name: <input type="text" id="name3" placeholder="Enter name" disabled></label>
+                <button class="confirm-name" data-player="3" disabled>Confirm</button>
+            </div>
+
+            <div class="player-card inactive" id="player-4">
+                <h3>Player 4</h3>
+                <button class="toggle-player" data-player="4">Enable Player</button>
+                <label>Name: <input type="text" id="name4" placeholder="Enter name" disabled></label>
+                <button class="confirm-name" data-player="4" disabled>Confirm</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="start-footer">
+        <button id="start-game-button" disabled onclick="window.location.href='memory.html';">Start</button>
+    </footer>
+    
+
+    <script src="../STATIC/js/startMemoryGame.js"></script>
+</body>
+
+</html>

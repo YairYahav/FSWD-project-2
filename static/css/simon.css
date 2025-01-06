@@ -1,0 +1,330 @@
+/* General Reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Deleting the scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-color);
+  }
+  
+:root {
+    --bg-color: #4a555e;
+    --second-bg-color: #282c34;
+    --text-color: rgb(255, 255, 255);
+
+}
+
+  header {
+    padding: 20px;
+    background-color: var(--second-bg-color);
+    color: var(--text-color);
+    margin-top: 20px;
+  }
+
+  #scores {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  #currend-score {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  #high-score {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  
+/* Game board design */
+#game-board {
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 50%;
+    background: var(--bg-color);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .color {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    clip-path: circle(50% at 50% 50%);
+    transform-origin: center;
+    transition: transform 0.1s ease, filter 0.1s ease;
+    pointer-events: auto;
+  }
+  
+  .color.active {
+    transform: scale(0.9);
+    filter: brightness(1.5);
+  }
+
+
+  
+  /* Colors*/
+  #red {
+    background: darkred;
+    clip-path: polygon(50% 50%, 100% 0, 0 0,50% 50%);
+  }
+  
+  #blue {
+    background: darkblue;
+    clip-path: polygon(50% 50%, 100% 0, 100% 100%, 50% 50%);
+  }
+  
+  #green {
+    background: darkgreen;
+    clip-path: polygon(50% 50%, 0 0, 0 100%, 50% 50%);
+  }
+  
+  #yellow {
+    background: darkgoldenrod;
+    clip-path: polygon(50% 50%, 0 100%, 100% 100%, 50% 50%);
+  }
+  
+
+  .inner-circle {
+    width: 200px;
+    height: 200px;
+    background: var(--bg-color);
+    position: absolute;
+    border-radius: 50%;
+    z-index: 10;
+    display: block;
+  }
+
+
+
+  #center-button-wrapper {
+    pointer-events: auto;
+    position: absolute;
+    z-index: 20;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+
+  #start-button {
+    position: absolute;
+    z-index: 20;
+    border: none;
+    background: none;
+    font-size: 40px;
+    color: #000;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+  #start-button:hover {
+    color: #222d35;
+  }
+
+
+  #start-button:active {
+    transform: translate(-50%, -50%) scale(0.95);
+    filter: brightness(3.5);
+  }
+
+
+  button.active {
+    transform: scale(1.2);
+    transition: transorm 0.2s;
+  }
+
+
+  #game-over-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 25;
+  }
+
+
+  #game-over-modal.active {
+    display: flex;
+  }
+
+
+  #game-over-modal.hidden {
+    display: none !important;
+  }
+
+
+  #game-over-modal.active #inner-circle {
+    display: none;
+  }
+
+
+  .modal-content {
+    text-align: center;
+    color: var(--text-color);
+  }
+
+
+  .modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
+
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .modal-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+  }
+
+
+  .modal-buttons button:hover {
+    background-color: var(--second-bg-color);
+    color: var(--text-color);
+  }
+
+
+  #play-again,
+  #back {
+    background-color: var(--text-color);
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+
+  
+  .mistake {
+    animation: mistakeHighlight 0.5s ease;
+  }
+
+
+  .no-click {
+    cursor: not-allowed;
+  }
+
+
+  #wait-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: white;
+    z-index: 15;
+  }
+
+  #wait-text.active {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+
+  @keyframes mistakeHighlight {
+    0% {
+      background-color: red;
+    }
+
+    100% {
+      background-color: var(--bg-color);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 930px) {
+    body {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    header {
+      width: 200px;
+      text-align: center;
+      margin-right: 20px; 
+    }
+  
+    #game-board {
+      width: 400px;
+      height: 400px;
+    }
+  }
+  
+  /* Phones */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    #game-board {
+      width: 300px;
+      height: 300px;
+    }
+  
+    #start-button {
+      font-size: 1.2rem;
+    }
+  }
+  
+  img, iframe, table {
+    max-width: 100%;
+    height: auto;
+  }

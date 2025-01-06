@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="../STATIC/css/memory.css">
+</head>
+
+<body>
+    <header>
+        <h1>Memory Game</h1>
+        <h2 id="current-player">Player 1's Turn</h2>
+    </header>
+
+    <main>
+        <div id="game-container">
+            <!-- Sidebar for players -->
+            <aside id="player-scores">
+                <div class="player-card" id="player1-card">
+                    <h3 id="player1-name">Player 1</h3>
+                    <p id="player1-score">Score: 0</p>
+                </div>
+                <div class="player-card" id="player2-card">
+                    <h3 id="player2-name">Player 2</h3>
+                    <p id="player2-score">Score: 0</p>
+                </div>
+                <div class="player-card" id="player3-card">
+                    <h3 id="player3-name">Player 3</h3>
+                    <p id="player3-score">Score: 0</p>
+                </div>
+                <div class="player-card" id="player4-card">
+                    <h3 id="player4-name">Player 4</h3>
+                    <p id="player4-score">Score: 0</p>
+                </div>
+            </aside>
+
+
+            <!-- Board -->
+            <section id="game-board">
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Pop up screen -->
+    <div id="game-over-modal" class="hidden">
+      <div class="modal-content">
+        <h2>GAME OVER</h2>
+        <h3 id="winner-name"></h3>
+        <div class="modal-buttons">
+            <button id="play-again">Play Again</button>
+            <button id="back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Memory Game</p>
+    </footer>
+
+    <script src="../STATIC/js/memory.js"></script>
+</body>
+
+</html>

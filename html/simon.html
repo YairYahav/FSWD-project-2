@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game</title>
+    <link rel="stylesheet" href="../STATIC/css/simon.css">
+</head>
+
+<body>
+    <header>
+      <h1>Simon Game</h1>
+      <div id="scores">
+        <div id="current-score">Current Score: 0</div>
+        <div id="high-score">Highest Score: 0</div>
+      </div>
+      <p id="audio-warning">Sound effects may not work if the audio is disabled.</p>
+    </header>
+    <main>
+      <div id="game-board">
+        <!-- Play Button -->
+        <div class="inner-circle">
+            <button id="start-button">&#9658</button>
+        </div>
+        <div id="wait-text" class="hidden">Wait for the Pattern to end</div>
+
+        <!-- Game colors -->
+        <div class="color red" id="red"></div>
+        <div class="color blue" id="blue"></div>
+        <div class="color green" id="green"></div>
+        <div class="color yellow" id="yellow"></div>
+      </div>
+    </main>
+
+    <!-- Pop up screen -->
+    <div id="game-over-modal" class="hidden">
+      <div class="modal-content">
+        <h2>GAME OVER</h2>
+        <div class="modal-buttons">
+            <button id="play-again">Play Again</button>
+            <button id="back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/check-user.js"></script>
+    <script src="/static/js/data.js"></script>
+    <script src="../STATIC/js/simon.js"></script>
+</body>
+
+</html>
+

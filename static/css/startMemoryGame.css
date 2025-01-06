@@ -1,0 +1,171 @@
+/* Colors Section */
+:root {
+    --bg-color: #1e3d58;
+    --button-color-on: #3e8e41;
+    --button-color-off: #aaa;
+    --card-active-color: #80d0e3;
+    --card-inactive-color: #d3d3d3;
+    --card-confirmed-color: #ffd700; /* The gold border around the card */
+    --text-color: #ffffff;
+    --input-bg: #f2f2f2;
+    --button-bg: #4CAF50;
+    --button-hover-bg: #45a049;
+    --start-button-inactive: #2e8b57;
+    --start-button-active: #66cdaa;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+/* Player selection section */
+#player-selection {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.player-card {
+    width: 250px;
+    height: 300px;
+    margin: 10px;
+    background-color: var(--card-inactive-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.player-card.inactive {
+    background-color: var(--card-inactive-color);
+}
+
+.player-card.active {
+    background-color: var(--card-active-color);
+    border: 2px solid transparent;
+}
+
+.player-card.confirmed {
+    border: 5px solid var(--card-confirmed-color);
+    box-shadow: 0 0 15px var(--card-confirmed-color);
+}
+
+button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: var(--button-color-off);
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--button-hover-bg);
+}
+
+button.toggle-player {
+    background-color: var(--button-color-off);
+}
+
+.player-card.active button.toggle-player {
+    background-color: var(--button-bg);
+}
+
+
+
+/* Input and label styles */
+label {
+    margin-top: 10px;
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+}
+
+input[type="text"] {
+    background-color: var(--input-bg);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 80%;
+}
+
+/* Start Game button */
+#start-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 30px;
+}
+
+#start-game-button {
+    background-color: var(--start-button-inactive);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 0px;
+    margin: 20px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+}
+
+#start-game-button:disabled {
+    background-color: var(--start-button-inactive);
+    cursor: not-allowed;
+}
+
+#start-game-button.active {
+    background-color: var(--start-button-active);
+    opacity: 1;
+    cursor: pointer;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+#start-game-button:hover:not(:disabled) {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Game board styles */
+#game-board {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
