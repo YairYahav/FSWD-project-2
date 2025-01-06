@@ -16,11 +16,12 @@ function displayGames() {
       gameImg = document.createElement("img");
       gameImg.src = "../static/pictures/under-dev.png";
     } else {
-      gameCard.href = `${game}.html`;
+      const gameLink = `${game !== "memory" ? game : "startMemoryGame"}.html`;
+      gameCard.href = gameLink;
 
       gameImg = document.createElement("iframe");
       gameImg.style.border = "0";
-      gameImg.src = `${game}.html`;
+      gameImg.src = gameLink;
 
       // score section
       const scores = document.createElement("div");
@@ -39,7 +40,7 @@ function displayGames() {
       uhs.style.fontWeight = "bold";
       uhs.textContent = "Your highest score: ";
       userHighest.append(uhs);
-      userHighest.append(getCurrHighestScore());
+      userHighest.append(getCurrHighestScore(game));
 
       scores.append(leader);
       scores.append(userHighest);
