@@ -80,7 +80,6 @@ button {
 
 button:disabled {
     background-color: var(--button-color-off);
-    cursor: not-allowed;
 }
 
 button:hover:not(:disabled) {

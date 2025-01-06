@@ -8,6 +8,8 @@
     --text-color: #ffffff;
     --scoreboard-bg: #1e3d58;
     --card-hover-color: #66cdaa;
+    --back-button-hover: rgb(97, 190, 221);
+    --back-button-active: rgb(0, 145, 255);
 }
 
 /* General Styles */
@@ -40,6 +42,33 @@ header h2 {
     margin-top: 0;
     color: var(--card-border-color);
 }
+
+#back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  #back-to-menu {
+    background-color: var(--text-color);
+    color: black;
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  #back-to-menu:hover {
+    background-color: var(--back-button-hover);
+    color: var(--text-color);
+}
+
+#back-to-menu:active {
+    background-color: var(--back-button-active);
+    color: var(--text-color);
+}
+
 
 /* Layout */
 main {

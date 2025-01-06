@@ -16,7 +16,8 @@ document.querySelectorAll(".toggle-player").forEach((button) => {
             playerInput.disabled = false;
             confirmButton.disabled = false;
             button.textContent = "Disable Player";
-        } else {
+        } 
+        else {
             playerCard.classList.add("inactive");
             playerCard.classList.remove("active", "confirmed");
             playerInput.disabled = true;
@@ -35,10 +36,16 @@ document.querySelectorAll(".confirm-name").forEach((button) => {
         const playerInput = document.getElementById(`name${button.dataset.player}`);
 
         if (playerCard.classList.contains("confirmed")) {
+            console.log("Confirmed")
             playerCard.classList.remove("confirmed");
             playerInput.disabled = false;
-            button.disabled = false;
-        } else {
+            // button.disabled = false;
+            button.style.background = '#4CAF50';
+            button.textContent = 'confirm'
+        } 
+        else {
+            console.log("Not Confirmed")
+
             if (!playerInput.value.trim()) {
                 alert("Please enter a name!");
                 return;
@@ -46,7 +53,9 @@ document.querySelectorAll(".confirm-name").forEach((button) => {
 
             playerCard.classList.add("confirmed");
             playerInput.disabled = true;
-            button.disabled = true;
+            button.style.background = '#aaa';
+            button.textContent = 'Cancel'
+            // button.disabled = true;
         }
 
         updateStartButton();

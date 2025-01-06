@@ -43,6 +43,7 @@ let isGameOver = false;
 const board = document.getElementById('game-board');
 const playAgainButton = document.getElementById("play-again");
 const backButton = document.getElementById("back");
+const backToMenu = document.getElementById("back-to-menu");
 
 
 
@@ -315,4 +316,8 @@ playAgainButton.addEventListener("click", () => {
 
 backButton.addEventListener("click", () => {
     window.location.href = "../html/games.html"; // בכוונה בעברית שיהיה בולט איפה צריך להוסיף
+});
+
+backToMenu.addEventListener("click", () => {
+    window.location.href = "../html/games.html";
 });

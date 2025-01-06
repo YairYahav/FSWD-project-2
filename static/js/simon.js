@@ -7,6 +7,8 @@ const startButton = document.getElementById("start-button");
 const modal = document.getElementById("game-over-modal");
 const playAgainButton = document.getElementById("play-again");
 const backButton = document.getElementById("back");
+const backToMenu = document.getElementById("back-to-menu");
+
 
 
 
@@ -212,6 +214,10 @@ function showSequence() {
 
   backButton.addEventListener("click", () => {
     window.location.href = "../html/games.html"; // בכוונה בעברית שיהיה בולט איפה צריך להוסיף
+  });
+
+  backToMenu.addEventListener("click", () => {
+    window.location.href = "../html/games.html";
   });
 
 

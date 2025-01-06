@@ -27,10 +27,13 @@ body {
     --bg-color: #4a555e;
     --second-bg-color: #282c34;
     --text-color: rgb(255, 255, 255);
+    --back-button-hover: rgb(97, 190, 221);
+    --back-button-active: rgb(0, 145, 255);
 
 }
 
   header {
+    position: relative;
     padding: 20px;
     background-color: var(--second-bg-color);
     color: var(--text-color);
@@ -51,6 +54,32 @@ body {
     font-size: 18px;
     margin-top: 5px;
   }
+
+  #back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  #back-to-menu {
+    background-color: var(--text-color);
+    color: black;
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  #back-to-menu:hover {
+    background-color: var(--back-button-hover);
+    color: var(--text-color);
+}
+
+#back-to-menu:active {
+    background-color: var(--back-button-active);
+    color: var(--text-color);
+}
 
   
 /* Game board design */
